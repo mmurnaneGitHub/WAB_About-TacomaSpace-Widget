@@ -1,5 +1,5 @@
 ## WAB_About-TacomaSpace-Widget
-TacomaSpace About Widget (https://wspdsmap.cityoftacoma.org/website/tacomaspace/)
+About Widget for TacomaSpace (https://wspdsmap.cityoftacoma.org/website/tacomaspace/)
 
 Customization adds information on last commercial property data update.
 
