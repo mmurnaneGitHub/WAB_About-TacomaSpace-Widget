@@ -3,7 +3,7 @@ About Widget for TacomaSpace (https://wspdsmap.cityoftacoma.org/website/tacomasp
 
 Customization adds information on last commercial property data update.
 
-Version 2.12
+Version 2.13
 
 INSTRUCTIONS:
 1. Copy Widget.js to \widgets\About\Widget.js
