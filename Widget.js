@@ -15,19 +15,17 @@
 ///////////////////////////////////////////////////////////////////////////
 
 define(['dojo/_base/declare',
-    'dojo/_base/html',
-    'dojo/query',
-    'dojo/on',
-    'dojo/_base/lang',
-    './common',
-    'dijit/_WidgetsInTemplateMixin',
-    'jimu/BaseWidget'
-  ],
-  function(declare, html, query, on, lang, common, _WidgetsInTemplateMixin, BaseWidget) {
+  'dojo/_base/html',
+  'dojo/query',
+  'dojo/on',
+  'dojo/_base/lang',
+  './common',
+  'dijit/_WidgetsInTemplateMixin',
+  'jimu/BaseWidget'
+],
+  function (declare, html, query, on, lang, common, _WidgetsInTemplateMixin, BaseWidget) {
     var clazz = declare([BaseWidget, _WidgetsInTemplateMixin], {
       baseClass: 'jimu-widget-about',
-      // clasName: 'esri.widgets.About',
-
       _hasContent: null,
 
       postCreate: function () {
@@ -35,24 +33,24 @@ define(['dojo/_base/declare',
 
         //MJM - get date of current data csv file (last update) ---------------------------------------------------------------------------
         _fetchDate = function () {
-                                  try {
-                                      var req=new XMLHttpRequest();
-                                      req.open("HEAD", 'data/CBA_Download.csv', false);
-                                      req.send(null);
-                                      if(req.status== 200){
-                                          var date1= req.getResponseHeader('Last-Modified').split(" ");
-                                          return "Last Update: " + date1[2] + " " + date1[1] + ", " + date1[3];
-                                      }
-                                       else return "";  //no file found
-                                  } catch(er) {
-                                      return er.message;
-                                  }
-                              };
+          try {
+            var req = new XMLHttpRequest();
+            req.open("HEAD", 'data/CBA_Download.csv', false);
+            req.send(null);
+            if (req.status == 200) {
+              var date1 = req.getResponseHeader('Last-Modified').split(" ");
+              return "Last Update: " + date1[2] + " " + date1[1] + ", " + date1[3];
+            }
+            else return "";  //no file found
+          } catch (er) {
+            return er.message;
+          }
+        };
 
         var theDate = _fetchDate();  //get date
         var currentContent = this.config.about.aboutContent;
-         this.config.about.aboutContent = currentContent.replace("Last Update:", theDate);  //manipulate existing text to add last update
-         this._hasContent = this.config.about && this.config.about.aboutContent;  //text for the panel
+        this.config.about.aboutContent = currentContent.replace("Last Update:", theDate);  //manipulate existing text to add last update
+        this._hasContent = this.config.about && this.config.about.aboutContent;  //text for the panel
         // End MJM---------------------------------------------------------------------------------------------------------------=---------
 
       },
@@ -92,7 +90,7 @@ define(['dojo/_base/declare',
           }
         }
       },
-      _resizeImg: function(img) {
+      _resizeImg: function (img) {
         var customBox = html.getContentBox(this.customContentNode);
         var imgSize = html.getContentBox(img);
         if (imgSize && imgSize.w && imgSize.w >= customBox.w) {
